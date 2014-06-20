@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Explained</title>
+	<script type="text/javascript" language>
+	function editNodeText (id, newText) {
+		var node = document.getElementById(id, newText);
+
+		while(node.firstChild)
+			node.removeChild(node.firstChild);
+			node.appendChild(document.createTextNode(newText));
+
+			document.getElementById(id).style.color = "red";
+			document.getElementById(id).style.position = "fixed";
+			document.getElementById(id).style.top = "300px";
+			document.getElementById(id).style.left = "500px";
+	}
+
+	function editNodetext2(id, newText) {
+		var node = document.getElementById(id).lastChild;
+		node.nodeValue =newText;
+
+		 var node1 = document.getElementById(id);
+		// node.nodeValue=newText;
+		node1.removeChild(node1.childNodes[0]);
+		node1.childNodes[2].nodeValue=newText;
+		var newNode = document.createElement('hr'); // Creates a new tag element
+		node1.appendChild(newNode); // Inserts the hr tag
+		// Create a text node
+		var randTextNode = document.createTextNode("I'm random text");
+		node1.appendChild(randTextNode);
+	}
+	</script>
+</head>
+<body>
+	<span id="spanEX" onclick="editNodeText('spanEX', 'New text is here')">Change this text</span>
+
+	<div id="divEx" onclick="editNodetext2('divEx', 'New text for Div')">
+		<b>some text here</b><br>
+		<i>other text here</i><br>
+	</div>
+</body>
+</html>

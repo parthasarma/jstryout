@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cookie test</title>
+	<script type="text/javascript">
+		function getACookie(name)
+
+{
+
+var cookieName = document.getElementById("getme").value;    	// Get the value from the text box called getme
+
+var allCookies = document.cookie.split(';');     	// Splits all of the cookies and puts them in an array
+
+var cookieData = "";
+
+for (var i=0; i < allCookies.length; i++)    	// Cycle through all of the cookies in the array
+
+{
+
+if ((allCookies[i].indexOf(cookieName)) != -1)     	 // Test to see if string contains the cookie name
+
+{
+
+match = allCookies[i].replace(" ", "");    	 // Deletes whitespace that may proceed the cookie name
+
+cookieData = match.substr((cookieName.length + 1));    	 // Assign the substring that follows the cookie name
+
+alert(cookieName + " " + cookieData);
+
+}
+
+}
+
+}
+
+function createCookie(newCookie)
+
+{
+
+var expDate = new Date();
+
+expDate.setMonth(expDate.getMonth() + 1);    	// Adds 1 month ahead as the expiration date
+
+var cookieVal = document.getElementById(newCookie).value;
+
+// Retrieves cookie value from the node that was past to the function
+
+document.cookie = newCookie + "=" + cookieVal + ";path=/;expires=" + expDate.toGMTString();    	// Creates the cookie
+
+}
+
+function deleteCookie()
+
+{
+
+var cookieToDel = document.getElementById("deleteme").value;
+
+createCookie(cookieToDel,"",-1);     	// Creates a cookie with a name value and expiration in days
+
+}
+
+	</script>
+</head>
+<body>
+<p>Enter Your First Name
+
+<input type="text" id="firstname" onblur="createCookie('firstname');"/><br /></p>
+
+<p>Enter Your Last Name
+
+<input type="text" id="lastname" onblur="createCookie('lastname');"/><br /></p>
+
+<p>Cookie To Delete
+
+<input type="text" id="deleteme" onblur="deleteCookie();"/><br /></p>
+
+<p>Cookie To Get
+
+<input type="text" id="getme" onblur="getACookie();"/><br /></p>
+
+<script type="text/javascript">  	 document.write("Every Cookie: " + document.cookie);  	 </script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+1. If we want to manipulate a form inside Javascript, we have to mention the name of the form.
+2. Emcapsualtion :: Grouping of properties and The Methods needed to manipulate those properties.
+3. Inheritance :: creating new class while inhering properties and methods from another classs.
+4. arguments :: is an object, and it can be accessed as an array
+5. Javascript doe not have global scope. That is a variable defined outside a function can not be accessed from inside the function. 
+6. Even function defined inside a function can not accessed varibles from that function.
+
+regualr Expression
+======================
+1. search() takes a regex as argument and returns the index of the first match.
+2. . represents any 1 character but not a new line.

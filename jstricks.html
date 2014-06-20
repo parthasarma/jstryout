@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS tricks</title>
+	<style>
+	#h3style{
+		color: gray;
+	}
+	</style>
+</head>
+<body onResize="changeImage();" onLoad="alert('website loaded');">
+
+	<script language="javascript" type="text/javascript">
+
+		function changeImage(){
+			document.getElementById("littlebrain").style.height="35%";
+			document.getElementById("littlebrain").style.width="35%";
+			return true;
+		}
+
+		function alertMe(){
+			 alertmsg = document.getElementById("littlebrain").src + "\nHeight: " + document.getElementById("littlebrain").height + "\nWidth: " + document.getElementById("littlebrain").width; 
+			alert(alertmsg);
+			return true;
+		}
+
+		function changeImage(){
+			document.getElementById("littlebrain").src="images/go.jpg";
+			return true;
+		}
+
+		function changeColor(){
+			document.getElementById("h3style").style.color="red";
+			document.getElementById("h3style").firstChild.nodeValue="Excite";
+			return true;
+		}
+
+		function changeAgain(){
+			document.getElementById("h3style").style.color="gray";
+			document.getElementById("h3style").firstChild.nodeValue="Bored";
+			return true;
+		}
+
+		function showPara(){
+			document.getElementById("first").style.visibility=(document.formex.firstpara.checked) ? "visible" : "hidden";
+			document.getElementById("second").style.visibility=(document.formex.secondpara.checked) ? "visible" : "hidden";
+			document.getElementById("third").style.visibility=(document.formex.thirdpara.checked) ? "visible" : "hidden";
+		}
+	</script>
+	<h3>This site requires JavaScript</h3>
+	<img src="images/littlebrain.png" id="littlebrain" onclick="alertMe();" ondblclick="alert('You double clicked');" onmouseover="changeImage();">
+
+	<h3 id="h3style" onmouseover="changeColor();" onmouseout="changeAgain();">Rollover</h3>
+
+	<p id="first">Lorem ipsum dolor sit amet, consectetur adipisicing elit, </p>
+
+	<p id="second">sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	<p id="third"> Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore.</p>
+
+	<form name="formex">
+		<input type="checkbox" name="firstpara" onclick="showPara();">First Paragraph
+		<input type="checkbox" name="secondpara" onclick="showPara();">Second Paragraph
+		<input type="checkbox" name="thirdpara" onclick="showPara();">Third Paragraph
+
+		<p>Mouse Position</p>
+		<input type="text" name="mousex"> Mouse X Position <br>
+		<input type="text" name="mousey"> Mouse Y Position <br>
+
+		<p>Keyboard pressed OR Mouse clicked</p>
+		<input type="text" name="keypress"> Key Pressed <br>
+		<input type="text" name="mousebutton"> Mouse Clicked <br>
+
+	</form>
+	
+	<script type="text/javascript" language="javascript">
+	 	
+	 	var mie = (navigator.appName == "Microsoft Internet Explorer")?true:false;
+
+	 	if (!mie) {
+	 		document.captureEvents(Event.MOUSEMOVE);
+	 		document.captureEvents(Event.MOUSEDOWN);
+	 	}
+
+	 	document.onkeypress = keyPressed;
+	 	document.onmousemove = mousePos;
+	 	document.onmousedown = mouseClicked;
+
+	 	var mouseClick = 0;
+	 	var keyClicked = 0;
+	 	var mouseX = 0;
+	 	var mouseY = 0;
+
+	 	function mousePos(e){
+	 		if (!mie) {
+	 			mouseX = e.pageX;
+	 			mouseY = e.pageY;
+	 		}else{
+	 			mouseX = event.clientX + document.body.scrollLeft;
+	 			mouseY = event.clientX + document.body.scrollTop;
+	 		}
+
+	 		document.formex.mousex.value = mouseX;
+	 		document.formex.mousey.value = mouseY;
+	 		return true;
+	 	}
+
+	 	function keyPressed(e){
+	 		if (mie) {
+	 			e = window.event;
+	 			keyClicked = e.keyCode;
+	 		}else{
+	 			keyClicked = String.fromCharCode(e.charCode);
+	 		}
+	 		if (!keyClicked) {
+	 			return false;	
+	 		}
+
+	 		document.formex.keypress.value = keyClicked;
+	 	}
+
+	 	function mouseClicked(e){
+	 		if (mie) {
+	 			switch(event.button){
+	 				case 0:
+	 					document.formex.mousebutton.value = "Left";
+	 					break;
+	 				
+	 				case 1:	
+	 					document.formex.mousebutton.value = "Middle";
+	 					break;
+
+	 				case 2:
+	 					document.formex.mousebutton.value = "Right";
+	 					break;
+
+	 				default:
+	 					document.formex.mousebutton.value = "none";	
+	 			}
+	 			return false;
+	 		}else{
+	 				switch(e.which){
+	 				case 1:
+	 					document.formex.mousebutton.value = "Left";
+	 					break;
+	 				
+	 				case 2:	
+	 					document.formex.mousebutton.value = "Middle";
+	 					break;
+
+	 				case 3:
+	 					document.formex.mousebutton.value = "Right";
+	 					break;
+
+	 				default:
+	 					document.formex.mousebutton.value = "none";	
+	 			}
+	 			return true;
+	 		}
+	 	}
+	</script>
+</body>
+</html>

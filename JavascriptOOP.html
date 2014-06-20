@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript OOP Programming</title>
+</head>
+<body>
+	<script type="text/javascript" language="javascript">
+		function Animal () {
+			this.name = "no name";
+			this.sound = "grr";
+			this.owner = "no owner";
+		}
+
+		Animal.prototype.setOwner = function(newOwner) {
+			if (typeof newOwner != 'undefined') {
+				this.owner = newOwner;
+			}else{
+				document.write("Please enter owner name");
+			}
+		}
+
+		Animal.prototype.getOwner = function() {
+			return this.owner;		
+		}
+
+		Animal.prototype.setName = function(newName) {
+			if (typeof newName != 'undefined') {
+				this.name = newName;
+			}else{
+				document.write("Please enter Animal name");
+			}
+		}
+
+		Animal.prototype.getName = function() {
+			return this.name;
+		}
+
+		Animal.prototype.setSound = function(newSound) {
+			if (typeof newSound != 'undefined') {
+				this.sound = newSound;
+			}else{
+				document.write("Please enter Animal sound");
+			}
+		}
+
+		Animal.prototype.getSound = function() {
+			return this.sound;
+		}
+
+		var Dog = new Animal();
+
+		Dog.setName("Tom");
+		Dog.setSound("woof");
+		Dog.setOwner("Moon");
+
+		document.write(Dog.getName() + "<br>");
+		document.write(Dog.getSound() + "<br>");
+		document.write(Dog.getOwner() + "<br>");
+		document.write("<br>");
+
+		function Cat(){
+			Animal.call(this);
+			this.mood = "Happy";
+		}
+
+		Cat.prototype = new Animal();
+		Cat.prototype.constructor = Cat;
+
+		Cat.prototype.setMood = function(newMood) {
+			if (typeof newMood != 'undefined') {
+				this.mood = newMood;
+			}else{
+				document.write("Please enter an valid mood");
+			}
+		}
+
+		Cat.prototype.getMood = function() {
+			return this.mood;
+		}
+
+		var jonki = new Cat;
+
+		jonki.setName("Tom");
+		jonki.setSound("woof");
+		jonki.setOwner("Moon");
+		jonki.setMood("Fucked");
+
+		document.write(jonki.getName() + "<br>");
+		document.write(jonki.getSound() + "<br>");
+		document.write(jonki.getOwner() + "<br>");
+		document.write(jonki.getMood() + "<br>");
+		document.write("<br>");
+
+
+		//arrays
+		var sampArray = new Array();
+		sampArray[0] = "Partha";
+		sampArray[1] = 123;
+		sampArray[2] = "24th main";
+
+		var sampArray2 = new Array("Moon", 456, "8th cross");
+		
+		var sampArray3 = ["buby", 467, "house no 1198"];
+		
+		sampArray4 = sampArray.concat(sampArray3);
+		for(i in sampArray4){
+			document.write(sampArray4[i] + "\t");
+		}
+
+		document.write("<br>");
+
+		document.write("Array string: " + sampArray.join(" ") + "<br>");
+		document.write("array slice: " + sampArray.slice(0, 2) + "<br>");
+		document.write("array reversed: " + sampArray.reverse() + "<br>");
+
+		document.write("<br>");
+
+		var numList = [6, 4, 8, 1 , 7, 9, 2, 3, 5];
+
+		document.write("Array sort: " + numList.sort() + "<br>");
+		document.write("Array spliced: " + numList.splice(0, 3) + "<br>" );
+		document.write("Array after splice: " + numList + "<br>");
+		document.write("Replace array: " + numList.splice(0, 3, 14, 17, 21)+ "<br>");
+		document.write("Array after replacement: " + numList + "<br>");
+		document.write("<br>");
+
+		//working with multiple arguments
+		function addMany(a, b, c, d, e, f){
+			var i = 0;
+			var sum = 0;
+
+			document.write("Number of arguments: " + arguments.length + "<br>");
+
+			while(i<arguments.length){
+				sum = sum + arguments[i];
+				i++;
+			}
+
+			document.write("The sum is: " + sum + "<br>");
+		}
+
+		addMany(1, 2, 4, 7, 8, 9);
+
+		//javascript scope of veriable
+	</script>
+</body>
+</html>

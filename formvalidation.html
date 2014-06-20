@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+	<script type="text/javascript" language="javascript">
+	function editNodetext (regex, input, helpId, helpMessage) {
+		if (!regex.test(input)) {
+			if (helpId != null) {
+				while(helpId.firstChild){
+					helpId.removeChild(helpId.firstChild);
+				}
+			helpId.appendChild(document.createTextNode(helpMessage));
+			return false;
+			}
+		}else{
+			if (helpId != null) {
+				while(helpId.firstChild){
+					helpId.removeChild(helpId.firstChild);
+				}
+			return true;	
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div>
+		Enter you name: 
+		<input type="text" name="name" id="name" size="30" onblur="isTheFiledEmpty(this, document.getElementById('name_help'));">
+		<span id="name_help"></span>
+	</div>
+
+	<div>
+		Enter you street Address: 
+		<input type="text" name="street" id="street" size="30" onblur="isAddressOk(this, document.getElementById('street_help'));">
+		<span id="street_help"></span>
+	</div>
+
+	<div>
+		Enter you city: 
+		<input type="text" name="street" id="street" size="30" onblur="isTheFiledEmpty(this, document.getElementById('city_help'));">
+		<span id="city_help"></span>
+	</div>
+
+	<div>
+		Enter you state code: 
+		<input type="text" name="state" id="state" size="30" onblur="isStateOk(this, document.getElementById('state_help'));">
+		<span id="state_help"></span>
+	</div>
+
+	<div>
+		Enter you phone number: 
+		<input type="text" name="phone" id="phone" size="30" onblur="isPhoneOk(this, document.getElementById('phone_help'));">
+		<span id="phone_help"></span>
+	</div>
+
+	<div>
+		Enter you email: 
+		<input type="text" name="email" id="email" size="30" onblur="isEmailOk(this, document.getElementById('email_help'));">
+		<span id="email_help"></span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cookie test</title>
+	<script type="text/javascript">
+		function getACookie (name) {
+			var cookieName = document.getElementById("getMe").value;
+
+			var allCookie = document.cookie.split(';');
+
+			var cookieData = "";
+
+			for (var i = 0; i < allCookie.length; i++) {
+				if (allCookie[i].indexOf(cookieName) != -1) {
+					match = allCookie[i].replace(" ", "");
+					cookieData = match.substr((cookieName.length + 1));
+					alert(cookieName + " " + cookieData);
+				}	
+			}
+		}
+
+		function createCookie (newCookie) {
+			var expDate = new Date();
+
+			expDate.setMonth(expDate.getMonth() + 1);
+
+			var cookieValue = document.getElementById(newCookie).value;
+
+			document.cookie = newCookie + "=" + cookieValue + ";path=/;expires=" + expDate.toGMTString();
+		}
+
+		function deleteCookie () {
+			var cookieToDel = document.getElementById("deleteMe").value;
+			createCookie(cookieToDel,"",-1);
+		}
+	</script>
+</head>
+<body>
+	<p>Enter your first name: 
+		<input type="text" name="firstname" id="firstname" onblur="createCookie('firstname');">
+	</p>
+	<p>Enter your last name: 
+		<input type="text" name="lastname" id="lastname" onblur="createCookie('lastname');">
+	</p>
+	<p>Cookie to delete
+		<input type="text" name="deleteMe" id="deleteMe" onblur="deleteCookie();">
+	</p>
+	<p>Cookie to get
+		<input type="text" name="getMe" id="getMe" onblur="getACookie();">
+	</p>
+	<script type="text/javascript">
+		document.write("Every Cookie: " + document.cookie);
+	</script>
+</body>
+</html>

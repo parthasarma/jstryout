@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
+    <script language="javascript" src="customjs/addThese.js"></script>
+  </head>
+  <body>
+      <body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Playing around with Google Dev API, Javascript, JQuery.....</h1>
+    <h2>Learning Javascript...</h2>
+        <p class="lead">Share your story of alien abduction:</p>
+      </div>
+    <script language="javascript" type="text/javascript">
+      document.write(Number.MAX_VALUE+"<br>");
+      document.write(Number.MIN_VALUE+"<br>");
+
+      var first_str = "First String ";
+      var second_str = "Second String";
+
+      var combine = first_str+second_str;
+      document.write(combine + "<br>");
+
+      document.write("Length of the string: "+combine.length+"<br>");
+
+      document.write("Substring :"+combine.substring(5, 12)+ "<br>");
+
+      document.write("Last Character: " + combine.charAt(combine.length-1) + "<br>");
+
+      document.write("Index of T: " + combine.indexOf("t")+"<br>");
+
+      var str_var = "5";
+      var num_var = 10;
+
+      var total = num_var + str_var;
+      var multTotal = num_var * str_var;
+
+      document.write("5 + 10 = " +total +"<br>");
+      document.write("5 * 10 = " + multTotal + "<br>");
+
+      total = num_var + Number(str_var);
+
+      document.write("5 + 10 = " +total +"<br>");
+
+      var float_var = 3.1417979868907;
+      var float_str = float_var.toFixed(5);
+
+      document.write("Shortened PI: " + float_str + "<br>");
+
+      document.write("Integer PI: " + parseInt(float_var) + "<br>");
+
+      document.write("Datatype of float_str is : " + typeof(float_str) + "<br>");
+      document.write("Datatype of float_var is : " + typeof(float_var) + "<br>");
+
+    
+      var vehicle = new Array("car", "truck", "scooter", "bike");
+      document.write("The second vehicle is : " + vehicle[1] + "<br>");
+
+      for (var i = 0; i < vehicle.length; i++) {
+        document.write(vehicle[i] + "<br>");
+      }
+
+      for (i in vehicle) {
+        document.write(vehicle[i] + "<br>");          
+      }
+
+      for (var count = 0; count <= 10; count++) {
+        if (!(count % 2)) {
+          document.write(count + "<br>");
+        };
+      };
+
+      document.write("5 + 25 = " + addNum(5,25) + "<br>");
+
+    </script>
+
+    </div><!-- /.container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Regular Expresstion in Javascript</title>
+</head>
+<body>
+	<script type="text/javascript" language="javascript">
+
+		// A regular expression is a series of codes used to describe a series of characters
+		// Just like you surround strings with quotes, you surround a regex with slashes /
+		// var regPat = /[1-9]{1,5}\s[A-Z]{2}\b[a-z]{2,}/
+		// String that starts with 1 to 5 Numbers, a space, 2 Uppercase letters, Word Boundary, 2 or more lowercase
+		// var regPat = new RegExp("\d{1,5}\s[A-Z]{2}\b[a-z]{2,}”);
+
+		var longStr= "Derek 123 Main St Pittsburgh 15457 (412)-555-5555 dbanas@newthinktank.com";
+
+		document.write(longStr.search(/[A-Za-z]{1,15}\s/) + "<br />");
+		// \s - a space
+		// \b - a word boundary
+		// \d = [0-9] in javascript
+		// . – Represents any 1 character except a newline
+		// [^0-9] – Represents anything that isn’t a number
+		// \w – A-Z, a-z, 0-9, or _
+		// \W – Opposite of \w
+		// \S – Opposite of \s
+		// \D – Opposite of \d
+		// \B – Anything that’s not a word boundary
+		// [0-9]? – Represents zero to 1 numbers
+		// [0-9]+ – Represents 1 or more numbers
+		// [0-9]* – Represents 0 or more numbers
+		// [Aa] – Represents 1 A or 1 a
+		// ^ – Represents the beginning of the string
+		// $ – Represents the end of the string
+		// \n - new line
+
+		document.write(longStr.search(/[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/) + "<br>");
+
+		document.write(longStr.replace(/\d{5}/, "55555") + "<br>");
+		document.write(longStr + "<br>");
+
+		matchArray = longStr.match(/\d{4,5}/g);
+		document.write(matchArray + "<br>");
+
+		// g – Represents a global or whole string search
+		// i – Represents a case insensitive search
+		// m – $ represents the end of the line or string whether it contains \n or not
+
+		
+		var regexPat = /\d{3,5}/;
+		document.write((regexPat instanceof RegExp) + "<br>"); // Regex are objects of type RegExp
+
+		var regMatch = regexPat.exec(longStr);
+		document.write(regMatch + "<br>");
+		document.write(regMatch.index + "<br>");
+	</script>
+</body>
+</html>
